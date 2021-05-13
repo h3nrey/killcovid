@@ -57,9 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Enemy\EnemyBehaviour.cs" />
-    <Compile Include="Assets\Scripts\barrerBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Utilities\CallScene.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\barrerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Player\ShootController.cs" />
+    <Compile Include="Assets\Scripts\Utilities\CallScene.cs" />
+    <Compile Include="Assets\Scripts\Player\ProjectilleBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Player\ScoreController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

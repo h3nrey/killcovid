@@ -16,7 +16,9 @@ public class barrerBehaviour : MonoBehaviour {
     public void barrerTakeDamage(int enemydamage) {
         currentLife -= enemydamage;
 
-        Destroy(this.gameObject);
+        if(currentLife <= 0) {
+            Destroy(this.gameObject);
+        }
     }
 }
 

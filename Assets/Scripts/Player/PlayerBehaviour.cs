@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] float speed;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] LayerMask Clickble;
+
     void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if (Input.GetMouseButtonDown(1)) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit alvo;
+
+            if (Physics.Raycast(ray, out alvo, 100, Clickble))
+            {
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(alvo.collider.transform.position.x,transform.position.y, transform.position.z), 10f);
+            }
+        }
+        /* float xInput = Input.GetAxisRaw("Horizontal");
+
+        rb.velocity = Vector2.right * xInput * speed; */
     }
 }
