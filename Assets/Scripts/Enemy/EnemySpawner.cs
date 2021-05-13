@@ -6,8 +6,8 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] Transform[] spawnerPoints;
     [SerializeField] GameObject[] enemyPrefabs;
 
-    [SerializeField] int enemiesPerWave, enemiesPerWaveMultiply;
-    public int activeEnemies;
+    [SerializeField] int enemiesPerWave, enemiesPerWaveMultiply, enemyInstantiate;
+    public int activeEnemies, enemiesToWin;
     [SerializeField] float timeBetweenSpawn, timeToStart;
     int enemyPointIndexArray, enemyIndexArray;
 
@@ -29,8 +29,11 @@ public class EnemySpawner : MonoBehaviour {
             enemyPointIndexArray = Random.Range(0, spawnerPoints.Length);
             enemyIndexArray = Random.Range(0, enemyPrefabs.Length);
 
-            Instantiate(enemyPrefabs[enemyIndexArray], spawnerPoints[enemyPointIndexArray].transform.position, Quaternion.identity);
-            activeEnemies++;
+            if (enemyInstantiate < enemiesToWin) { 
+                Instantiate(enemyPrefabs[enemyIndexArray], spawnerPoints[enemyPointIndexArray].transform.position, Quaternion.identity);
+                activeEnemies++;
+                enemyInstantiate++;
+            }
         }
 
         switch(_score.virusKilled) {
@@ -38,7 +41,14 @@ public class EnemySpawner : MonoBehaviour {
                 enemiesPerWave += enemiesPerWaveMultiply;
                 break;
 
-            case 1:
+            case 10:
+                enemiesPerWave += enemiesPerWaveMultiply;
+                break;
+
+            case 15:
+                enemiesPerWave += enemiesPerWaveMultiply;
+                break;
+            case 20:
                 FindObjectOfType<CallScene>().callScene("WonScreen");
                 break;
         }

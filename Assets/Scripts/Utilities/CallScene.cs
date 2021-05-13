@@ -8,4 +8,8 @@ public class CallScene : MonoBehaviour
     public void callScene(string scene) {
         SceneManager.LoadScene(scene);
     }
+
+    public void Exit() {
+        Application.Quit();
+    }
 }

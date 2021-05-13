@@ -132,4 +132,4 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  projectileDamage: 20
+  projectileDamage: 50
