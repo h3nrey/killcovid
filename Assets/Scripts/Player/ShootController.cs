@@ -13,13 +13,22 @@ public class ShootController : MonoBehaviour {
     //shooting flags
     bool shootting, readyToShoot, allowInvoke;
 
+    //externals
+    private PlayerBehaviour _playerBehaviour;
+    private PauseController _pauseController;
+
     void Start() {
         readyToShoot = true;
         allowInvoke = true;
     }
 
+    void Awake() {
+        _playerBehaviour = FindObjectOfType<PlayerBehaviour>();
+        _pauseController = FindObjectOfType<PauseController>();
+    }
+
     void Update() {
-        if(Input.GetButtonDown("Fire1")  && readyToShoot) {
+        if(Input.GetButtonDown("Fire1")  && readyToShoot && !_pauseController.paused) {
             Shoot();
         }
     }
