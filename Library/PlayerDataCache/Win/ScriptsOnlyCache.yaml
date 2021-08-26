@@ -4,11 +4,13 @@ ScriptsOnlyBuild:
     - CallScene
     - EnemyBehaviour
     - EnemySpawner
+    - PauseController
     - PlayerBehaviour
     - ProjectilleBehaviour
     - ScoreController
     - ShootController
     - barrerBehaviour
+    - initialSceneController
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -17,6 +19,14 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -30,6 +40,105 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
+    Assets/Scenes/Game.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1542}
+    - Class: 114
+      Script: {instanceID: 1756}
+    - Class: 114
+      Script: {instanceID: 2244}
+    - Class: 114
+      Script: {instanceID: 2276}
+    - Class: 114
+      Script: {instanceID: 2380}
+    - Class: 114
+      Script: {instanceID: 2416}
+    - Class: 114
+      Script: {instanceID: 2506}
+    - Class: 114
+      Script: {instanceID: 2516}
+    - Class: 114
+      Script: {instanceID: 2694}
+    - Class: 114
+      Script: {instanceID: 2788}
+    - Class: 114
+      Script: {instanceID: 3290}
+    - Class: 114
+      Script: {instanceID: 3454}
+    - Class: 114
+      Script: {instanceID: 3602}
+    - Class: 114
+      Script: {instanceID: 3616}
+    - Class: 114
+      Script: {instanceID: 3646}
+    - Class: 114
+      Script: {instanceID: 3764}
+    - Class: 114
+      Script: {instanceID: 4244}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/GameOver.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -43,7 +152,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -66,7 +181,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2788}
     - Class: 114
-      Script: {instanceID: 3760}
+      Script: {instanceID: 3764}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -109,11 +224,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1994}
     - Class: 114
+      Script: {instanceID: 2000}
+    - Class: 114
       Script: {instanceID: 2276}
     - Class: 114
       Script: {instanceID: 2380}
-    - Class: 114
-      Script: {instanceID: 2416}
     - Class: 114
       Script: {instanceID: 2516}
     - Class: 114
@@ -121,11 +236,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2788}
     - Class: 114
-      Script: {instanceID: 3716}
+      Script: {instanceID: 3166}
     - Class: 114
-      Script: {instanceID: 3760}
+      Script: {instanceID: 3720}
     - Class: 114
-      Script: {instanceID: 3958}
+      Script: {instanceID: 3764}
+    - Class: 114
+      Script: {instanceID: 3962}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -142,81 +259,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    Assets/Scenes/SampleScene.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
-    - Class: 64
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1756}
-    - Class: 114
-      Script: {instanceID: 2244}
-    - Class: 114
-      Script: {instanceID: 2276}
-    - Class: 114
-      Script: {instanceID: 2380}
-    - Class: 114
-      Script: {instanceID: 2416}
-    - Class: 114
-      Script: {instanceID: 2506}
-    - Class: 114
-      Script: {instanceID: 2516}
-    - Class: 114
-      Script: {instanceID: 2694}
-    - Class: 114
-      Script: {instanceID: 3288}
-    - Class: 114
-      Script: {instanceID: 3452}
-    - Class: 114
-      Script: {instanceID: 3600}
-    - Class: 114
-      Script: {instanceID: 3614}
-    - Class: 114
-      Script: {instanceID: 3760}
-    - Class: 114
-      Script: {instanceID: 4240}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 136
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
     Assets/Scenes/WonScreen.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -225,8 +267,6 @@ ScriptsOnlyBuild:
     - Class: 20
       Script: {instanceID: 0}
     - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
       Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
@@ -239,8 +279,6 @@ ScriptsOnlyBuild:
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
-      Script: {instanceID: 0}
-    - Class: 102
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -265,7 +303,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2788}
     - Class: 114
-      Script: {instanceID: 3760}
+      Script: {instanceID: 3764}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -393,7 +431,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 84b4b0d29032179927bb518ad66b031d
+      Hash: 442b461c04248a2e51ce778aa84b24ef
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyBehaviour
@@ -447,7 +485,7 @@ ScriptsOnlyBuild:
     className: ColorPalette
   - hash:
       serializedVersion: 2
-      Hash: 174d7c7bbcd01771bd2d729d3f83105a
+      Hash: baf171cc0aa828353b745c8c0f64b8b7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerBehaviour
@@ -597,6 +635,12 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: b11dcc1eb4ba7be225d44f4a0f185015
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: initialSceneController
+  - hash:
+      serializedVersion: 2
       Hash: a2612813f45d0ced02c3e4bc9dbea8b4
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -711,6 +755,12 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
+      Hash: c741ee1df369e58ca396efdc749bbe96
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PauseController
+  - hash:
+      serializedVersion: 2
       Hash: 040dd48e3a027d5424519a5fa2009df4
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -802,7 +852,7 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/InitialScene.unity
-  - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/GameOver.unity
   - Assets/Scenes/WonScreen.unity
-  playerPath: "G:/Meu Drive/C\xEDcero dias/3\xBA Ano/pii/Killcovid/wavegamecovid.exe"
+  - Assets/Scenes/Game.unity
+  playerPath: C:/Users/pedro/Desktop/killCovidBuild/wavegamecovid.exe

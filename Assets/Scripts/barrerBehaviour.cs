@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class barrerBehaviour : MonoBehaviour {
-    [SerializeField] int Life;
+    [SerializeField] int Life = 100;
+    //[SerializeField] Animator anim;
     int currentLife;
 
     private void Awake() {
@@ -14,6 +15,7 @@ public class barrerBehaviour : MonoBehaviour {
         
     }
     public void barrerTakeDamage(int enemydamage) {
+        //anim.SetTrigger("Attacked");
         currentLife -= enemydamage;
 
         if(currentLife <= 0) {

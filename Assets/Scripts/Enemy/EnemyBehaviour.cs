@@ -8,6 +8,9 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] int enemyLife;
     int currentLife;
     [SerializeField] Animator anim;
+    [SerializeField] AudioSource AttackSound;
+    [SerializeField] string enemyType;
+    [SerializeField] ParticleSystem deathParticles;
 
     [Header("physics")]
     [SerializeField] Rigidbody enemyrb;
@@ -28,68 +31,55 @@ public class EnemyBehaviour : MonoBehaviour
     EnemySpawner _enemySpawn;
     private ScoreController _score;
 
-    private void Awake()
-    {
+    private void Awake() {
         _barrer = FindObjectOfType<barrerBehaviour>();
         _callScene = FindObjectOfType<CallScene>();
         _enemySpawn = FindObjectOfType<EnemySpawner>();
         _score = FindObjectOfType<ScoreController>();
     }
 
-    void Start()
-    {
+    void Start() {
         currentLife = enemyLife;
         allowInvoke = true;
         readyToAttack = true;
     }
 
-    // Update is called once per frame
     void Update() {
-        //enemyrb.velocity = EnemyDirection * enemyVelocity * Time.deltaTime;
-        Move();
-    }
+        if(isRanged == false){
+            enemyrb.velocity = EnemyDirection * enemyVelocity * Time.deltaTime;
+        } else if(isRanged == true) {
+            enemyrb.velocity = Vector3.zero;
+        }
+    } 
 
     void FixedUpdate() {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, enemyDirectionAttack);
+
         if (Physics.Raycast(ray, out hit, rangeAttack, barrer) && readyToAttack) {
-            //StartCoroutine(EnemyAttack(hit));
+	        isRanged = true;
             EnemyAttackRanged(hit);
-        }
-    }
-    
-    void Move() {
-        if(!isRanged) {
-            enemyrb.velocity = EnemyDirection * enemyVelocity * Time.deltaTime;
-        }
+        } else if(!Physics.Raycast(ray, out hit, rangeAttack, barrer) && readyToAttack){ 
+            isRanged = false;
+        } 
     }
 
-    void Takedemage(int damage)
-    {
+    void Takedemage(int damage) {
         currentLife -= damage;
 
-        if (currentLife == 0)
-        {
+        if (currentLife == 0) {
+            deathParticles.Play();
             _enemySpawn.activeEnemies--;
             _score.virusKilled++;
             Destroy(this.gameObject);
         }
     }
 
-    IEnumerator EnemyAttack(RaycastHit hit)
-    {
-        //toca animação de ataque
-        yield return new WaitForSeconds(AttackTime);
-        Debug.Log("atingiu");
-        hit.collider.gameObject.GetComponent<barrerBehaviour>().barrerTakeDamage(enemyDamage);
-
-    }
-
     void EnemyAttackRanged(RaycastHit hit) {
         readyToAttack = false;
         anim.SetTrigger("Attack");
         hit.collider.gameObject.GetComponent<barrerBehaviour>().barrerTakeDamage(enemyDamage);
-
+        //AttackSound.Play();
 
         if(allowInvoke) {
             Invoke("AllowInvoke", AttackTime);
@@ -114,9 +104,12 @@ public class EnemyBehaviour : MonoBehaviour
             _callScene.callScene("GameOver");
         }
 
-        if (other.gameObject.tag == "projectille")
-        {
+        if (other.gameObject.tag == "projectille" && enemyType == "comum") {
             Takedemage(other.gameObject.GetComponent<ProjectilleBehaviour>().projectileDamage);
         }
+        if(other.gameObject.tag == "breakProteinProjectille" && enemyType == "Big") {
+            Takedemage(other.gameObject.GetComponent<ProjectilleBehaviour>().projectileDamage);
+        }
+
     }
 }

@@ -8,8 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InitialScene.unity
     guid: d3b89f640163d4d41812dcf27aa6be74
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+  - enabled: 0
+    path: Assets/Scenes/fase.unity
+    guid: e4d6771ca07da504bbec8085e964bf69
+  - enabled: 0
+    path: Assets/Scenes/fase1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
@@ -17,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WonScreen.unity
     guid: a265a4a59488d1f45bcd3aad59abea3a
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: ecbc3d0f1a592024b817f78f43a004e4
   m_configObjects: {}

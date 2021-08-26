@@ -24,6 +24,7 @@ public class ProjectilleBehaviour : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.layer == enemyLayer || other.gameObject.tag == "enemy") {
+            print("atingiu");
             DestroyProjectille(); 
         }
     }

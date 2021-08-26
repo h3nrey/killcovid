@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] float speed;
@@ -16,12 +15,11 @@ public class PlayerBehaviour : MonoBehaviour
         _pauseController = FindObjectOfType<PauseController>();
     }
 
+    
     void Update() {
-        transform.position = Vector3.MoveTowards(transform.position, local.transform.position, speed);
+        rb.MovePosition(Vector3.MoveTowards(transform.position, local.transform.position, speed));
 
-
-        print(rb.velocity);
-        if (rb.velocity.x != 0) {
+        if (rb.IsSleeping()) {
             moving = true;
         }
         else {
@@ -33,7 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
             RaycastHit alvo;
 
             if (Physics.Raycast(ray, out alvo, 100, Clickble)) {
-                local.transform.position = new Vector3(alvo.collider.transform.position.x,transform.position.y,transform.position.z);
+                local.transform.position = new Vector3(alvo.collider.transform.position.x, alvo.collider.transform.position.y,transform.position.z);
             }
         }
     }
